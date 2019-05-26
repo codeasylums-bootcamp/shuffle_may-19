@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Business Pedia</title>
+    <link rel="icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono" rel="stylesheet">
+
+
+  <style>
+.main {
+  max-width: 1500px;
+  margin: auto;
+}
+.cl{
+  height: 1000px;
+
+}
+#desc {
+    font-family: 'B612 Mono', monospace;
+    background-color: lightgray;
+
+
+}
+</style>
+<body>
+</head>
+<body>
+  <div class="main">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Front.html">Business Pedia</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="stock.html">Stocks</a></li>
+      <li><a href="cryp.html">CryptoCurrency</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      
+
+    </ul>
+    
+  </div>
+</nav>
+<div class="cl">
+  
+  <div class="panel-group">
+    <div class="panel panel-default" >
+      <div class="panel-heading" > 
+  <ul>  
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/series-label.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<br>
+<br>
+<div class="container">
+<div  class="row">
+        <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <iframe width="300" height="150" src="https://www.youtube.com/embed/3mpra_qeX0w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-md-2"></div>
+   
+           
+</div>
+</div>
+</div>
+<div class="container">
+        <div id='container'>
+    
+    
+    
+    
+        </div>
+    
+    
+    </div>
+     <br>
+    <br>
+    <div class="col-md-12" id="desc" ><h5><center><b>Description</b></center></h5><br>A cryptocurrency (or crypto currency) is a digital asset designed to work as a medium of exchange that uses strong cryptography to secure financial transactions, control the creation of additional units, and verify the transfer of assets.[1][2][3] Cryptocurrencies are a kind of alternative currency and digital currency (of which virtual currency is a subset). Cryptocurrencies use decentralized control as opposed to centralized digital currency and central banking systems.[4]
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+    xh();
+    var d=new Date()
+    var pppz=d.toTimeString().substr(2,3);
+    var eeez=d.toTimeString().substr(0,2);
+    var qqqz=parseFloat(pppz);
+    eeez=parseFloat(eeez)
+
+
+
+    var chart=Highcharts.chart('container', {
+
+title: {
+    text: 'Bit-Coin CHART'
+},
+
+subtitle: {
+    text: 'in US Dollars'
+},
+
+yAxis: {
+    title: {
+        text: 'USD'
+    }
+},
+xAxis: {
+     type:'datetime'
+ },
+legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+},
+
+plotOptions: {
+    series: {
+        label: {
+            connectorAllowed: false
+        },
+        //   pointStart: Date.UTC(2019,01,06,eeez,qqqz),
+        //   pointInterval :10000//one day
+    }
+},
+
+series: [{
+    name: 'Bitcoin Exchange Rate',
+    data: []
+}
+],
+
+responsive: {
+    rules: [{
+        condition: {
+            maxWidth: 600
+        },
+        chartOptions: {
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            }
+        }
+    }]
+}
+});
+
+setInterval(xh,5000)
+
+
+function xh(){ 
+//count++
+console.log("before hit")
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+         value=JSON.parse(xhttp.responseText);
+        //console.log(value.bpi.EUR.rate);
+        
+        var usd=value.bpi.USD.rate_float
+            console.log(value)
+        chart.series[0].addPoint(usd)
+        
+    console.log("after hit")
+    }
+
+
+  };
+  xhttp.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json", true);
+  xhttp.send();
+  console.log(1)
+}   
+
+</script>
+  </ul>
+
+</div>
+    </div>
+    
+   
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+  var promoticker = function() {
+    var window_width = window.innerWidth;
+    var speed = 10 * window_width;
+    $('#promo-notifications li:first').animate( {left: '-500px'}, speed, 'linear', function() {
+      $(this).detach().appendTo('#promo-notifications ul').css('left', "100%");
+      promoticker();
+    });
+  };
+  if ($("#promo-notifications li").length > 1) {
+    promoticker();
+  }
+});
+</script>
+</body>
+</html>

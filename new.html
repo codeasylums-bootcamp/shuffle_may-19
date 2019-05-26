@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Business Pedia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/37033620-95F1-CC4A-9397-9D5786A39D20/main.js" charset="UTF-8"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+      .divtag{
+        margin:20px;
+      }
+      input{
+        width: 50%
+      }
+    .main {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .cl{
+      height: 1000px;
+
+    }
+    </style>
+  </head>
+  <body>
+    <div class="divtag">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="Front.html">Business Pedia</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="stock.html">Stocks</a></li>
+          <li><a href="cryp.html">CryptoCurrency</a></li>
+          <li><a href="finance.html">Finance</a></li>
+          <li><a href="tech.html">Tech</a></li>
+
+        </ul>
+      </div>
+    </nav>
+    <center>
+      <marquee><h1><font>NIfty 11,844.10 +187.05 (1.60%)&nbsp&nbspSensex 39,434.72 +623.33 (1.61%)&nbsp&nbspDow Jones 25,585.69 −190.92 (0.74%)</font></h1></marquee>
+    <input type="text" name="" value="" id="input1" placeholder="type ticker">
+    <button type="button" name="button" onclick="myfunction()">Search</button>
+    </center>
+    <center>
+    <div Id="d" style="font-size:30px">
+    </div>
+    </center>
+    </div>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function myfunction()
+    {
+      var c=document.getElementById('input1').value;
+      var b='https://api.worldtradingdata.com/api/v1/stock?symbol='+c+'&api_token=GhutsXYa3LvNeZUox4t7OaxwerHI3qDSIYFOEiHBALM6W9h6zQDt5vBMRZAD'
+        //console.log(array[i]);
+          axios.get(b)
+          .then((response) => {
+            var s=response.data['data'][0];
+            console.log(response.data['data'][0]);
+            //console.log(s);
+            //var st=response.data["Time Series (5min)"]["2019-05-23 16:00:00"]["4. close"];
+            //document.getElementById('h3').innerHTML+=`
+            //${st}
+            //`
+              document.getElementById('d').innerHTML="Stock Price is  "+s['price']+"<br>"+"One year high of stock is  "+s['52_week_high']+"<br>"+"One year low of stock is  "+s['52_week_low']+"<br>"+
+              "Percentage change for the day is  "+s['change_pct']+"<br>"+"Yesterdays closing price  "+s['close_yesterday']+"<br>"+"Price in Currency  "+s['currency']+"<br>"+"Day high  "+s['day_high']+"<br>"+"Day low  "+s['day_low']+"<br>"+"Market Capitalisation of stock  "+s['market_cap']+"<br>"+
+              "Stock Exchange  "+s['stock_exchange_long']+"<br>"+"Volume  "+s['volume']+"<br>"+"Average Volume  "+s['volume_avg']+"<br>"+"Last Traded Time  "+s['last_trade_time']+"<br>";
+              //return axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          })
+          // .then((response) => {
+          //     console.log(`then 2 was called:`)
+          //     console.log(response)
+          // })
+           .catch((err) => {
+               console.log(`some error occured:`, err)
+          })
+      }
+  </script>
+</html>
